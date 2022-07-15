@@ -1,0 +1,40 @@
+{% if paint.pot_amount <1 %}
+    {% set warning = "red-bg" %}
+{% elif paint.pot_status.lower() == 'low' and paint.pot_amount == 1 %}
+    {% set warning = "yellow-bg" %}
+{% else %}
+    {% set warning = "green-bg" %}
+{% endif %}
+
+<div class="grid-container fullCard">
+    <div class="paintHeader">
+        <div class="paintName" style="background-color: {{ paint.hexcode }}">
+            {{ paint.paint_name }}
+        </div>
+        <div class="paintMenu">
+            <a href="{{ url_for('update', paintid=paint.paint_id) }}">
+                <img src="{{ url_for('static',filename='images/icons8-edit-16.png') }}">
+            </a><a href="{{ url_for('delete', paintid=paint.paint_id) }}">
+                <img src="{{ url_for('static',filename='images/icons8-trash-16.png') }}"></a>
+        </div>
+    </div>
+    <div class="paintBody">
+        <div class="paintInfo">
+            ID: {{ paint.paint_id }}<br/>
+            Type: {{ paint.paint_type }}<br/>
+            Colour: {{ paint.paint_colour }}<br/>
+        </div>
+        <div class="potInfo">
+            Pots: {{ paint.pot_amount }}
+            <br/>
+            Status: {{ paint.pot_status }}
+            <br/>
+        </div>
+    </div>
+    <div class="warning {{ warning }}">
+        <br/>
+    </div>
+</div>
+
+
+

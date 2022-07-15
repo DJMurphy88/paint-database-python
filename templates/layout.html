@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <title>Paint Database - {% block title %}{% endblock title %}</title>
+
+    {% endblock head %}
+</head>
+<body>
+    <div class="header">
+        {% block header %}
+        <h1>Paint Database</h1>
+        {% endblock header %}
+    </div>
+    <div class="navBar">
+        <ul>
+            <li><a href="{{url_for('index')}}">Home</a></li>
+            <li><a href="{{url_for('paintList')}}">List of Paints</a></li>
+            <li><a href="{{url_for('submission')}}">Add Paint</a></li>
+        </ul>
+    </div>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

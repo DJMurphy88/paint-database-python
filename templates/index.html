@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock title %}
+
+{% block head %}
+    {{ super() }}
+{% endblock head %}
+
+{% block header %}
+    {{ super() }}
+{% endblock header %}
+
+{% block content %}
+<div class="wrap">
+    <h3>Paint Database Info</h3>
+    Total Pots: {{ count }} pots
+    <br>
+    Total Colours: {{ colours }}
+    <br>
+    Missing Colours: {{ missing }}
+    <br>
+</div>
+<div class="grid-container grid-container--fit">
+    <div class="grid-element">
+        <h3 align="center">Running Low</h3>
+        {% if low != [] %}
+        <div class="grid-container grid-container--fill">
+            {% for paint in low %}
+                <div class="grid-element">
+                    {% include 'simplecard.html' %}
+                </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <p align="center">
+                no colours are running low
+            </p>
+        {% endif %}
+    </div>
+    <div class="grid-element">
+        <h3 align="center">Depleted</h3>
+        <div class="grid-container grid-container--fill">
+            {% for paint in depleted %}
+                <div class="grid-element">
+                    {% include 'simplecard.html' %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

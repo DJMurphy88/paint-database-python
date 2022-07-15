@@ -1,0 +1,116 @@
+.grid-container {
+    align-content: center;
+    display: grid;
+}
+
+.grid-container--fill {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.grid-container--fit {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-element {
+    padding: 15px;
+}
+
+.header {
+    background-color: black;
+    color: white;
+    padding: 15px;
+}
+
+.navBar {
+    text-align: center;
+}
+
+.navBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navBar li {
+    float: left
+}
+
+.navBar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navBar a:hover {
+    background-color: #111;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullCard {
+    border: 1px solid black;
+}
+
+.simpleCard {
+    border: 1px solid black;
+}
+
+.paintHeader {
+    display: flex;
+}
+
+.paintBody {
+    display: grid;
+    grid-template-areas:
+        'paint pot';
+}
+
+.paintName {
+    flex-grow: 1;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.paintMenu {
+    font-size: 0;
+    border-bottom: 1px solid black;
+}
+
+.paintMenu a {
+    padding: 0px;
+}
+
+.paintInfo {
+    grid-area: paint;
+}
+
+.potInfo {
+    grid-area: pot;
+}
+
+.warning {
+    border-top: 1px solid black;
+}
+
+.green-bg {
+    background-color: green;
+}
+
+.yellow-bg {
+    background-color: yellow;
+}
+
+.red-bg {
+    background-color: red;
+}
