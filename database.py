@@ -1,6 +1,6 @@
-import encodings.oem
 import sqlite3
 from contextlib import closing
+from os.path import exists
 from objects import Paint
 
 DBFILE = "data/paintDB.db"
@@ -14,6 +14,18 @@ def connect():
 def close():
     if conn:
         conn.close()
+
+def checkDatabase():
+    query = '''CREATE TABLE IF NOT EXISTS paints (
+    paint_id TEXT NOT NULL UNIQUE PRIMARY KEY, 
+    paint_name TEXT NOT NULL UNIQUE,
+    paint_type TEXT,
+    pot_amount INTEGER,
+    pot_status TEXT,
+    paint_colour TEXT, hexcode TEXT);'''
+
+    with closing(conn.cursor()) as c:
+        c.execute(query)
 
 def makePaint(row):
     return Paint(row["paint_id"], row["paint_name"], row["paint_type"], row["pot_amount"],

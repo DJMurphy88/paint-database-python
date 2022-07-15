@@ -31,7 +31,7 @@ A paint database webapp system using python and FLASK.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps. 
+To get a local copy up and running follow these simple steps. 
 It's recommended that you use a virtual environment (venv) when installing NPM packages.
 
 ### Prerequisites
@@ -63,7 +63,7 @@ It's recommended that you use a virtual environment (venv) when installing NPM p
   - [ ] By range
   - [ ] By colour
   - [ ] By company
-- [ ] Generate blank database if none found
+- [x] Generate blank database if none found
 - [ ] General design improvements
 - [ ] Improve Add/Update pages
     - [ ] From design
@@ -75,7 +75,5 @@ It's recommended that you use a virtual environment (venv) when installing NPM p
 
 * [https://icons8.com]() Various icons by Icons8
 
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>

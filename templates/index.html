@@ -20,32 +20,36 @@
     <br>
 </div>
 <div class="grid-container grid-container--fit">
-    <div class="grid-element">
-        <h3 align="center">Running Low</h3>
-        {% if low != [] %}
-        <div class="grid-container grid-container--fill">
-            {% for paint in low %}
-                <div class="grid-element">
-                    {% include 'simplecard.html' %}
-                </div>
-            {% endfor %}
+    {% if (colours + missing) > 0 %}
+        <div class="grid-element">
+            <h3 align="center">Running Low</h3>
+            {% if low != [] %}
+            <div class="grid-container grid-container--fill">
+                {% for paint in low %}
+                    <div class="grid-element">
+                        {% include 'simplecard.html' %}
+                    </div>
+                {% endfor %}
+            </div>
+            {% else %}
+                <p align="center">
+                    no colours are running low
+                </p>
+            {% endif %}
         </div>
-        {% else %}
-            <p align="center">
-                no colours are running low
-            </p>
-        {% endif %}
-    </div>
-    <div class="grid-element">
-        <h3 align="center">Depleted</h3>
-        <div class="grid-container grid-container--fill">
-            {% for paint in depleted %}
-                <div class="grid-element">
-                    {% include 'simplecard.html' %}
-                </div>
-            {% endfor %}
+        <div class="grid-element">
+            <h3 align="center">Depleted</h3>
+            <div class="grid-container grid-container--fill">
+                {% for paint in depleted %}
+                    <div class="grid-element">
+                        {% include 'simplecard.html' %}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    {% else %}
+        <h3 align="center">No paints in database</h3>
+    {% endif %}
 </div>
 
 

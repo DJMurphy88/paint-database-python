@@ -7,11 +7,14 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     database.connect()
+    database.checkDatabase()
+
     count = database.getCount()
     colours = database.getColours()
     low = database.getLow()
     depleted = database.getDepleted()
     missing = len(depleted)
+
     database.close()
 
     return render_template("index.html", count=count, colours=colours, missing=missing, low=low, depleted=depleted)
