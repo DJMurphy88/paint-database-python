@@ -10,51 +10,55 @@
 {% endblock header %}
 
 {% block content %}
-<table align="center" width="60%" class="table">
-    <tr>
-        <td>
-            <h3 align="center">Add Paint</h3>
-            <form method="post" action="" enctype="application/x-www-form-urlencoded"
-                  name="submission_form" id="submission_form">
-                <div>
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" value="{{ paint.paint_name }}">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="paintid">ID Number:</label>
-                    <input type="text" name="paintid" id="paintid" value="{{ paint.paint_id }}">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="type">Paint Type:</label>
-                    <input type="text" name="type" id="type" value="{{ paint.paint_type }}">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="amount">Number of Pots:</label>
-                    <input type="number" name="amount" id="amount" value="{{ paint.pot_amount }}">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="status">Current Pot Status:</label>
-                    <input type="text" name="status" id="status" value="{{ paint.pot_status }}">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="colour">Paint Colour:</label>
-                    <input type="text" name="colour" id="colour" value="{{ paint.paint_colour }}">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="hexcode">Hexcode:</label>
-                    <input type="text" name="hexcode" id="hexcode" value="{{ paint.hexcode }}">
-                </div>
-                <div>
-                    <input type="submit" value="Update">
-                </div>
-            </form>
-        </td>
-    </tr>
-</table>
+<br/>
+<div class="paint-form">
+    <fieldset>
+        <label for="name"><span>Name:
+            <span class="required">*</span>
+            </span>
+            <input type="text" class="input-field" name="name" id="name"
+                   value="{{ paint.paint_name }}">
+        </label>
+        <label for="paintid"><span>ID Number:
+            <span class="required">*</span>
+            </span>
+            <input type="text" class="input-field" name="paintid" id="paintid"
+                   value="{{ paint.paint_id }}">
+        </label>
+        <label for="type"><span>Paint Type:
+            </span>
+            <input type="text" class="input-field" name="type" id="type"
+                   value="{{ paint.paint_type }}">
+        </label>
+        <label for="amount"><span>Number of Pots:
+            <span class="required">*</span>
+            </span>
+            <input type="number" class="input-field" name="amount" id="amount"
+                   value="{{ paint.pot_amount }}">
+        </label>
+        <label for="status"><span>Current Pot Status:
+        </span>
+            <select name="status" id="status">
+                <option value="Full" {{'selected' if paint.pot_status=='Full'}}>Full</option>
+                <option value="Low" {{'selected' if paint.pot_status=='Low'}}>Low</option>
+                <option value="Empty " {{'selected' if paint.pot_status=='Empty'}}>Empty</option>
+            </select>
+        </label>
+        <label for="colour"><span>Colour Family:
+            <span class="required">*</span>
+            </span>
+            <input type="text" class="input-field" name="colour" id="colour" value="{{ paint.paint_colour }}">
+        </label>
+        <label for="brand"><span>Brand:</span>
+            <input type="text" class="input-field" name="brand" id="brand" value="{{ paint.brand }}">
+        </label>
+        <br/>
+        <label for="hexcode"><span>Hexcode:</span>
+            <input type="color" class="input-field" name="hexcode" id="hexcode" value="{{ paint.hexcode }}">
+        </label>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </fieldset>
+</div>
 {% endblock %}

@@ -1,41 +1,48 @@
+/* Global colour settings */
+
+:root {
+    --black: #000;
+    --darker: #111;
+    --dark: #333;
+    --light: #888;
+    --white: #fff;
+    --good: 008000;
+    --caution: ffff00;
+    --danger ff0000;
+}
+
+/* Grid settings */
+
 .grid-container {
     align-content: center;
     display: grid;
 }
 
-.grid-container--fill {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-}
+.grid-container--fill {grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));}
 
-.grid-container--fit {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
+.grid-container--fit {grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
 
-.grid-element {
-    padding: 15px;
-}
+.grid-element {padding: 15px;}
 
 .header {
-    background-color: black;
-    color: white;
+    background-color: var(--black);
+    color: var(--white);
     padding: 15px;
 }
 
-.navBar {
-    text-align: center;
-}
+/* Nav bar settings */
+
+.navBar {text-align: center;}
 
 .navBar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: var(--dark);
 }
 
-.navBar li {
-    float: left
-}
+.navBar li { float: left}
 
 .navBar li a {
     display: block;
@@ -45,28 +52,49 @@
     text-decoration: none;
 }
 
-.navBar a:hover {
-    background-color: #111;
+.navBar a:hover {background-color: var(--darker);}
+
+/* Submission/update form settings */
+
+.paint-form {
+    margin: auto;
+    max-width: 450px;
 }
 
-.wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.paint-form label {
+    display: block;
+    margin-bottom: 10px;
 }
 
-.fullCard {
-    border: 1px solid black;
+.paint-form label > span {
+    float: left;
+    width: 125px;
+    font-weight: bold;
+    font-size: 13px;
+    text-shadow: 1px 1px 1px var(--white);
 }
 
-.simpleCard {
-    border: 1px solid black;
+.paint-form fieldset {
+    border-radius: 10px;
+    margin: 0px 0px 10px 0px;
+    border: 1px solid var(--light);
+    padding: 20px;
 }
 
-.paintHeader {
-    display: flex;
+.paint-form input[type=submit] {
+    display: block;
+    margin: 0 auto;
 }
+
+.required {color: red;}
+
+/* Card display settings */
+
+.fullCard {border: 1px solid var(--black);}
+
+.simpleCard {border: 1px solid var(--black);}
+
+.paintHeader {display: flex;}
 
 .paintBody {
     display: grid;
@@ -76,41 +104,36 @@
 
 .paintName {
     flex-grow: 1;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--black);
     font-weight: bold;
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: var(--white);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px var(--black);
 }
 
 .paintMenu {
     font-size: 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--black);
 }
 
-.paintMenu a {
-    padding: 0px;
-}
+.paintMenu a {padding: 0px;}
 
-.paintInfo {
-    grid-area: paint;
-}
+.paintInfo {grid-area: paint;}
 
-.potInfo {
-    grid-area: pot;
-}
+.potInfo {grid-area: pot;}
 
-.warning {
-    border-top: 1px solid black;
-}
+.warning {border-top: 1px solid var(--black);}
 
-.green-bg {
-    background-color: green;
-}
+.good-bg {background-color: green;}
 
-.yellow-bg {
-    background-color: yellow;
-}
+.caution-bg {background-color: yellow;}
 
-.red-bg {
-    background-color: red;
+.danger-bg {background-color: red;}
+
+/* Other settings */
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

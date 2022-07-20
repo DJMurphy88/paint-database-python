@@ -42,9 +42,10 @@ def getAddData():
     pot_status = request.values["status"]
     paint_colour = request.values["colour"]
     hexcode = request.values["hexcode"]
+    brand = request.values["brand"]
 
     database.connect()
-    paint = Paint(paint_id, paint_name, paint_type, pot_amount, pot_status, paint_colour, hexcode)
+    paint = Paint(paint_id, paint_name, paint_type, pot_amount, pot_status, paint_colour, hexcode, brand)
     database.addPaint(paint)
     database.close()
 
@@ -71,8 +72,9 @@ def getUpdateData():
     pot_status = request.values["status"]
     paint_colour = request.values["colour"]
     hexcode = request.values["hexcode"]
+    brand = request.values["brand"]
 
-    database.updatePaint(paint_id, paint_name, paint_type, pot_amount, pot_status, paint_colour, hexcode)
+    database.updatePaint(paint_id, paint_name, paint_type, pot_amount, pot_status, paint_colour, hexcode, brand)
     database.close()
 
     return redirect("list")

@@ -1,6 +1,5 @@
 import sqlite3
 from contextlib import closing
-from os.path import exists
 from objects import Paint
 
 DBFILE = "data/paintDB.db"
@@ -19,17 +18,16 @@ def checkDatabase():
     query = '''CREATE TABLE IF NOT EXISTS paints (
     paint_id TEXT NOT NULL UNIQUE PRIMARY KEY, 
     paint_name TEXT NOT NULL UNIQUE,
-    paint_type TEXT,
-    pot_amount INTEGER,
-    pot_status TEXT,
-    paint_colour TEXT, hexcode TEXT);'''
+    paint_type TEXT, pot_amount INTEGER,
+    pot_status TEXT, paint_colour TEXT, 
+    hexcode TEXT, brand TEXT);'''
 
     with closing(conn.cursor()) as c:
         c.execute(query)
 
 def makePaint(row):
     return Paint(row["paint_id"], row["paint_name"], row["paint_type"], row["pot_amount"],
-                 row["pot_status"], row["paint_colour"], row["hexcode"])
+                 row["pot_status"], row["paint_colour"], row["hexcode"], row["brand"])
 
 def getCount():
     query = '''
@@ -117,22 +115,23 @@ def getPaint(paint_id):
 
 def addPaint(paint):
     query = '''INSERT INTO paints (paint_id, paint_name, paint_type,
-            pot_amount, pot_status, paint_colour, hexcode)
-            VALUES (?, ?, ?, ?, ?, ?, ?)'''
+            pot_amount, pot_status, paint_colour, hexcode, brand)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)'''
 
     with closing(conn.cursor()) as c:
         c.execute(query, (paint.paint_id, paint.paint_name, paint.paint_type, paint.pot_amount,
-                          paint.pot_status, paint.paint_colour, paint.hexcode))
+                          paint.pot_status, paint.paint_colour, paint.hexcode, paint.brand))
         conn.commit()
 
-def updatePaint(paint_id, paint_name, paint_type, pot_amount, pot_status, paint_colour, hexcode):
+def updatePaint(paint_id, paint_name, paint_type, pot_amount, pot_status, paint_colour, hexcode, brand):
     query = '''UPDATE paints
                 SET paint_name = ?, paint_type = ?, pot_amount = ?,
-                 pot_status = ?, paint_colour = ?, hexcode = ?
+                 pot_status = ?, paint_colour = ?, hexcode = ?,
+                 brand = ?
                 WHERE paint_id = ?'''
 
     with closing(conn.cursor()) as c:
-        c.execute(query, (paint_name, paint_type, pot_amount, pot_status, paint_colour, hexcode, paint_id))
+        c.execute(query, (paint_name, paint_type, pot_amount, pot_status, paint_colour, hexcode, brand, paint_id))
         conn.commit()
 
 def deletePaint(paint_id):

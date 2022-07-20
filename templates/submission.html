@@ -10,51 +10,51 @@
 {% endblock header %}
 
 {% block content %}
-<table align="center" width="60%" class="table">
-    <tr>
-        <td>
-            <h3 align="center">Add Paint</h3>
-            <form method="post" action="" enctype="application/x-www-form-urlencoded"
-                  name="submission_form" id="submission_form">
-                <div>
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="name">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="paintid">ID Number:</label>
-                    <input type="text" name="paintid" id="paintid" placeholder="XX-XX">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="type">Paint Type:</label>
-                    <input type="text" name="type" id="type">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="amount">Number of Pots:</label>
-                    <input type="number" name="amount" id="amount">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="status">Current Pot Status:</label>
-                    <input type="text" name="status" id="status">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="colour">Paint Colour:</label>
-                    <input type="text" name="colour" id="colour">
-                    <span>*</span>
-                </div>
-                <div>
-                    <label for="hexcode">Hexcode:</label>
-                    <input type="text" name="hexcode" id="hexcode">
-                </div>
-                <div>
-                    <input type="submit" value="Submit">
-                </div>
-            </form>
-        </td>
-    </tr>
-</table>
+<br/>
+<div class="paint-form">
+    <fieldset>
+        <label for="name"><span>Name:
+            <span class="required">*</span>
+            </span>
+            <input type="text" class="input-field" name="name" id="name">
+        </label>
+        <label for="paintid"><span>ID Number:
+            <span class="required">*</span>
+            </span>
+            <input type="text" class="input-field" name="paintid" id="paintid" placeholder="XX-XX">
+        </label>
+        <label for="type"><span>Paint Type:
+            </span>
+            <input type="text" class="input-field" name="type" id="type">
+        </label>
+        <label for="amount"><span>Number of Pots:
+            <span class="required">*</span>
+            </span>
+            <input type="number" class="input-field" name="amount" id="amount">
+        </label>
+        <label for="status"><span>Current Pot Status:
+        </span>
+            <select name="status" id="status">
+                <option value="Full">Full</option>
+                <option value="Low">Low</option>
+                <option value="Empty">Empty</option>
+            </select>
+        </label>
+        <label for="colour"><span>Colour Family:
+            <span class="required">*</span>
+            </span>
+            <input type="text" class="input-field" name="colour" id="colour">
+        </label>
+        <label for="brand"><span>Brand:</span>
+            <input type="text" class="input-field" name="brand" id="brand">
+        </label>
+        <br/>
+        <label for="hexcode"><span>Hexcode:</span>
+            <input type="color" class="input-field" name="hexcode" id="hexcode">
+        </label>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </fieldset>
+</div>
 {% endblock %}
