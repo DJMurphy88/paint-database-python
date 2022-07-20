@@ -66,7 +66,7 @@ It's recommended that you use a virtual environment (venv) when installing NPM p
 - [x] Generate blank database if none found
 - [ ] General design improvements
 - [ ] Improve Add/Update pages
-    - [ ] From design
+    - [x] From design
     - [ ] Validation
 - [ ] Multi user support
 
