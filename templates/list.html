@@ -5,14 +5,20 @@
     {{ super() }}
 {% endblock head %}
 
+{% block scripts %}<script src="{{ url_for('static',filename='scripts/filter.js') }}"></script>{% endblock scripts %}
+
 {% block header %}
     {{ super() }}
 {% endblock header %}
 
 {% block content %}
-    <div class="grid-container grid-container--fit">
+    <div>
+        <input type="text" id="userInput" onkeyup="listFilter()" placeholder="Sort...">
+    </div>
+
+    <div class="grid-container grid-container--fit cards">
     {% for paint in paints  %}
-        <div class="grid-element">
+        <div class="grid-element {{ paint.paint_colour }}">
             {% include 'fullcard.html' %}
         </div>
     {% endfor %}

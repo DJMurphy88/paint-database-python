@@ -114,6 +114,7 @@ def getPaint(paint_id):
     return paint[0]
 
 def addPaint(paint):
+    print(f'Adding {paint.paint_id}')
     query = '''INSERT INTO paints (paint_id, paint_name, paint_type,
             pot_amount, pot_status, paint_colour, hexcode, brand)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)'''
@@ -124,6 +125,7 @@ def addPaint(paint):
         conn.commit()
 
 def updatePaint(paint_id, paint_name, paint_type, pot_amount, pot_status, paint_colour, hexcode, brand):
+    print(f'Updating {paint_id}')
     query = '''UPDATE paints
                 SET paint_name = ?, paint_type = ?, pot_amount = ?,
                  pot_status = ?, paint_colour = ?, hexcode = ?,
@@ -135,6 +137,7 @@ def updatePaint(paint_id, paint_name, paint_type, pot_amount, pot_status, paint_
         conn.commit()
 
 def deletePaint(paint_id):
+    print(f'Deleting {paint_id}')
     query = '''DELETE FROM paints WHERE paint_id = ?'''
 
     with closing(conn.cursor()) as c:

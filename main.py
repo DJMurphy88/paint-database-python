@@ -21,13 +21,17 @@ def index():
 
 @app.route("/list", methods=["GET"])
 def paintList():
-    sort = request.args.get("sort")
 
     database.connect()
     paints = database.getPaints()
     database.close()
 
-    return render_template('list.html', paints=paints, sort=sort)
+    colours = []
+    for paint in paints:
+        if paint.paint_colour not in colours:
+            colours.append(paint.paint_colour)
+
+    return render_template('list.html', paints=paints, colours=colours)
 
 @app.route("/submission")
 def submission():
@@ -61,11 +65,9 @@ def update():
 
         return render_template("update.html", paint=paint)
 
-@app.route("/update", methods=["GET", "POST"])
+@app.route("/update", methods=["POST"])
 def getUpdateData():
-    paint_id = request.args.get("paintid")
-    database.connect()
-
+    paint_id = request.values["paintid"]
     paint_name = request.values["name"]
     paint_type = request.values["type"]
     pot_amount = int(request.values["amount"])
@@ -74,6 +76,9 @@ def getUpdateData():
     hexcode = request.values["hexcode"]
     brand = request.values["brand"]
 
+    print(f'id = {paint_id}')
+
+    database.connect()
     database.updatePaint(paint_id, paint_name, paint_type, pot_amount, pot_status, paint_colour, hexcode, brand)
     database.close()
 

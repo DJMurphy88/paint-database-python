@@ -8,7 +8,7 @@
 #
 # start FLASK:
 # $env:FLASK_APP = "main"
-# $env:FLASK_ENV = "development"
+# $env:FLASK_DEBUG = "development"
 # flask run
 
 def main():

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     {% block head %}
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    {% block scripts %}
+    {% endblock scripts %}
     <title>Paint Database - {% block title %}{% endblock title %}</title>
-
     {% endblock head %}
 </head>
 <body>
@@ -14,13 +17,9 @@
         <h1>Paint Database</h1>
         {% endblock header %}
     </div>
-    <div class="navBar">
-        <ul>
-            <li><a href="{{url_for('index')}}">Home</a></li>
-            <li><a href="{{url_for('paintList')}}">List of Paints</a></li>
-            <li><a href="{{url_for('submission')}}">Add Paint</a></li>
-        </ul>
-    </div>
+
+    {% include "navbar.html" %}
+
     {% block content %}
     {% endblock content %}
 </body>
