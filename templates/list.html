@@ -18,7 +18,7 @@
 
     <div class="grid-container grid-container--fit cards">
     {% for paint in paints  %}
-        <div class="grid-element {{ paint.paint_colour }}">
+        <div class="grid-element {{ paint.paint_colour }} card">
             {% include 'fullcard.html' %}
         </div>
     {% endfor %}

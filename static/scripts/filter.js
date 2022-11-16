@@ -4,7 +4,7 @@ function listFilter() {
 
     input = document.getElementById("userInput");
     filter = input.value.toUpperCase();
-    cards = document.getElementsByClassName("fullCard")
+    cards = document.getElementsByClassName("card")
 
     for (i = 0; i < cards.length; i++) {
         card = cards[i];
