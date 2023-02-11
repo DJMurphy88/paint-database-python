@@ -94,3 +94,7 @@ def delete():
     database.close()
 
     return redirect("list")
+
+@app.route("/projects", methods=["GET"])
+def projects():
+    pass

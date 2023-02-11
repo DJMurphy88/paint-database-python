@@ -32,63 +32,60 @@
 
 /* Nav bar settings */
 
-.navbar {
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
     background-color: var(--dark);
 }
 
-.navbar a {
+li {
     float: left;
-    display: block;
-    color: white;
+}
+
+li a, .dropdown-button {
+    display: inline-block;
+    color: var(--white);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-.subnav {
-    float: left;
-    overflow: hidden;
-}
-
-.subnav .subnavbutton {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: var(--white);
-    padding: 14px 16px;
+li a:hover, .dropdown:hover . dropdown-button {
     background-color: var(--light);
-    font-family: inherit;
-    margin: 0;
 }
 
-.navbar a:hover, .subnav:hover .subnavbutton {
-    background-color: var(--darker);
-    }
+li.dropdown {
+    display: inline-block;
+}
 
-.subnav-content {
+.dropdown-content {
     display: none;
     position: absolute;
-    left: 0;
     background-color: var(--light);
-    width: 100%;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    margin-left: 8px;
-    margin-right: 8px;
 }
 
-.subnav-content a {
-    float: left;
-    color: var(--dark);
-    text-decoration: none;
-}
-
-.subnav-content a:hover {
-    background-color: var(--light);
+.dropdown-content a {
     color: var(--black);
+    padding: 12px 16px;
+    display: block;
+    text-align: left;
 }
 
-.subnav:hover .subnav-content {
+.dropdown-button:hover {
+    background-color: var(--light);
+}
+
+.dropdown-content a:hover {
+    color: var(--light);
+    background-color: var(--darker);
+}
+
+.dropdown:hover .dropdown-content {
     display: block;
 }
 

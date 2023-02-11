@@ -1,5 +1,17 @@
-<div class="navbar">
-    <a href="{{url_for('index')}}">Home</a>
-    <a href="{{url_for('paintList')}}">List of Paints</a>
-    <a href="{{url_for('submission')}}">Add Paint</a>
-</div>
+<ul>
+    <li><a href="{{url_for('index')}}">Home</a></li>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-button">Paints</a>
+        <div class="dropdown-content">
+            <a href="{{url_for('paintList')}}">List of Paints</a>
+            <a href="{{url_for('submission')}}">Add Paint</a>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-button">Projects</a>
+        <div class="dropdown-content">
+            <a href="">List of Projects</a>
+            <a href="">Add Project</a>
+        </div>
+    </li>
+</ul>
