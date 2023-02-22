@@ -1,6 +1,6 @@
 import sqlite3
 from contextlib import closing
-from objects import Paint
+from objects import Paint, Project
 
 DBFILE = "data/paintDB.db"
 conn = None
@@ -14,7 +14,7 @@ def close():
     if conn:
         conn.close()
 
-def checkDatabase():
+def checkDatabasePaints():
     query = '''CREATE TABLE IF NOT EXISTS paints (
     paint_id TEXT NOT NULL UNIQUE PRIMARY KEY, 
     paint_name TEXT NOT NULL UNIQUE,
@@ -24,6 +24,15 @@ def checkDatabase():
 
     with closing(conn.cursor()) as c:
         c.execute(query)
+
+def checkDatabaseProject():
+    query = '''CREATE TABLE IF NOT EXISTS projects (
+    name TEXT NOT NULL,
+    system TEXT,
+     TEXT);'''
+
+    with closing(conn.cursor()) as c:
+        c.execute(query, ())
 
 def makePaint(row):
     return Paint(row["paint_id"], row["paint_name"], row["paint_type"], row["pot_amount"],
@@ -101,7 +110,6 @@ def getPaints():
     return paints
 
 def getPaint(paint_id):
-    print(paint_id)
     query = '''SELECT * FROM paints WHERE paint_id = ?'''
     with closing(conn.cursor()) as c:
         c.execute(query, (paint_id,))
@@ -143,3 +151,40 @@ def deletePaint(paint_id):
     with closing(conn.cursor()) as c:
         c.execute(query, (paint_id,))
         conn.commit()
+
+def makeProject(row):
+    parts = getProjectParts(row["project_id"])
+    return Project(row["project_id"], row["project_name"], row["system"], parts)
+
+def getProjects():
+    query = '''
+    SELECT *
+    FROM projects
+    ORDER BY project_id'''
+
+    with closing(conn.cursor()) as c:
+        c.execute(query)
+        results = c.fetchall()
+
+    projects = []
+    for row in results:
+        projects.append(makeProject(row))
+
+    return projects
+
+def getProjectParts(project_id):
+
+    query = '''SELECT * FROM projects_paints WHERE project_id = ?'''
+
+    with closing(conn.cursor()) as c:
+        c.execute(query, (project_id,))
+        results = c.fetchall()
+
+    parts = []
+
+    for result in results:
+        part = [getPaint(result["paint_id"]), result["notes"]]
+
+        parts.append(part)
+
+    return parts

@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     database.connect()
-    database.checkDatabase()
+    database.checkDatabasePaints()
 
     count = database.getCount()
     colours = database.getColours()
@@ -19,7 +19,7 @@ def index():
 
     return render_template("index.html", count=count, colours=colours, missing=missing, low=low, depleted=depleted)
 
-@app.route("/list", methods=["GET"])
+@app.route("/paints", methods=["GET"])
 def paintList():
 
     database.connect()
@@ -31,13 +31,13 @@ def paintList():
         if paint.paint_colour not in colours:
             colours.append(paint.paint_colour)
 
-    return render_template('list.html', paints=paints, colours=colours)
+    return render_template('paintlist.html', paints=paints, colours=colours)
 
-@app.route("/submission")
-def submission():
-    return render_template("submission.html")
+@app.route("/paintsubmission")
+def paintsubmission():
+    return render_template("paintsubmission.html")
 
-@app.route("/submission", methods=["POST"])
+@app.route("/paintsubmission", methods=["POST"])
 def getAddData():
     paint_id = request.values["paintid"]
     paint_name = request.values["name"]
@@ -53,19 +53,19 @@ def getAddData():
     database.addPaint(paint)
     database.close()
 
-    return redirect("list")
+    return redirect("paints")
 
-@app.route("/update", methods=["GET"])
-def update():
+@app.route("/paintupdate", methods=["GET"])
+def paintupdate():
     if request.method == "GET":
         paint_id = request.args.get("paintid")
         database.connect()
         paint = database.getPaint(paint_id)
         database.close()
 
-        return render_template("update.html", paint=paint)
+        return render_template("paintupdate.html", paint=paint)
 
-@app.route("/update", methods=["POST"])
+@app.route("/paintupdate", methods=["POST"])
 def getUpdateData():
     paint_id = request.values["paintid"]
     paint_name = request.values["name"]
@@ -82,10 +82,10 @@ def getUpdateData():
     database.updatePaint(paint_id, paint_name, paint_type, pot_amount, pot_status, paint_colour, hexcode, brand)
     database.close()
 
-    return redirect("list")
+    return redirect("paints")
 
-@app.route("/delete", methods=["GET", "POST"])
-def delete():
+@app.route("/paintdelete", methods=["GET", "POST"])
+def paintdelete():
     paint_id = request.args.get("paintid")
 
     database.connect()
@@ -96,5 +96,10 @@ def delete():
     return redirect("list")
 
 @app.route("/projects", methods=["GET"])
-def projects():
-    pass
+def projectList():
+
+    database.connect()
+    projects = database.getProjects()
+    database.close()
+
+    return render_template('projectlist.html', projects=projects)

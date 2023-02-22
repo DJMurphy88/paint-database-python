@@ -13,3 +13,10 @@ class Paint:
     def __str__(self):
         return f'ID: {self.paint_id} Name: {self.paint_name} Type: {self.paint_type}'
 
+class Project:
+    def __init__(self, project_id, project_name, system, parts):
+        self.project_id = project_id
+        self.project_name = project_name
+        self.parts = parts
+        self.system = system
+

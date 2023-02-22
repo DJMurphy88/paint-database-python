@@ -1,3 +1,5 @@
+import database
+
 # for testing individual methods without
 # having to run everything at once
 
@@ -12,8 +14,9 @@
 # flask run
 
 def main():
-    pass
-
+    database.connect()
+    print(database.getProjectParts(1))
+    database.close()
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,28 @@
+<div class="grid-container fullCard">
+    <div class="projectHeader">
+        <div class="projectName">
+            {{ project.project_name }}
+        </div>
+        <div class="projectMenu">
+            <a href=""><img src="{{ url_for('static',filename='images/icons8-edit-16.png') }}">
+            </a><a href="">
+                <img src="{{ url_for('static',filename='images/icons8-trash-16.png') }}"></a>
+        </div>
+    </div>
+    <div class="projectBody">
+        {{ project.system }}
+    </div>
+    <div class="partBody">
+        {% for part in project.parts %}
+        <div class="paintName" style="background-color: {{ part[0].hexcode }}">
+            {{ part[0].paint_name }}
+        </div>
+        <dv>
+            {{ part[0].pot_status }}
+        </dv>
+        <div>
+            {{ part[1] }}
+        </div>
+        {% endfor %}
+    </div>
+</div>

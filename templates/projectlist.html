@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Project Database{% endblock title %}
+
+{% block head %}
+    {{ super() }}
+{% endblock head %}
+
+{% block header %}
+    {{ super() }}
+{% endblock header %}
+
+{% block content %}
+
+<div class="grid-container grid-container--fit projectcards">
+    {% for project in projects %}
+        <div class="grid-element {{ project.project_name }} card">
+            {% include 'projectcard.html' %}
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

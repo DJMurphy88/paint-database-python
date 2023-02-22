@@ -131,6 +131,8 @@ li.dropdown {
 
 .paintHeader {display: flex;}
 
+.projectHeader {display: flex;}
+
 .paintBody {
     display: grid;
     grid-template-areas:
@@ -145,12 +147,28 @@ li.dropdown {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px var(--black);
 }
 
+.projectName {
+    flex-grow: 1;
+    border-bottom: 1px solid var(--black);
+    font-weight: bold;
+    color: var(--white);
+    background-color: var(--dark);
+    rext-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px var(--black);
+}
+
 .paintMenu {
     font-size: 0;
     border-bottom: 1px solid var(--black);
 }
 
 .paintMenu a {padding: 0px;}
+
+.projectMenu {
+    font-size: 0;
+    border-bottom: 1px solid var(--black);
+}
+
+.projectMenu a {padding: 0px;}
 
 .paintInfo {grid-area: paint;}
 
