@@ -59,10 +59,10 @@ It's recommended that you use a virtual environment (venv) when installing NPM p
 <!-- TODO -->
 ## Todo
 
-- [ ] Add sorting
-  - [ ] By range
-  - [ ] By colour
-  - [ ] By company
+- [x] Add sorting
+  - [x] By range
+  - [x] By colour
+  - [x] By company
 - [x] Generate blank database if none found
 - [ ] General design improvements
 - [ ] Improve Add/Update pages
