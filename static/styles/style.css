@@ -52,13 +52,9 @@ li a, .dropdown-button {
     text-decoration: none;
 }
 
-li a:hover, .dropdown:hover . dropdown-button {
-    background-color: var(--light);
-}
+li a:hover, .dropdown:hover . dropdown-button {background-color: var(--light);}
 
-li.dropdown {
-    display: inline-block;
-}
+li.dropdown {display: inline-block;}
 
 .dropdown-content {
     display: none;
@@ -76,18 +72,14 @@ li.dropdown {
     text-align: left;
 }
 
-.dropdown-button:hover {
-    background-color: var(--light);
-}
+.dropdown-button:hover {background-color: var(--light);}
 
 .dropdown-content a:hover {
     color: var(--light);
     background-color: var(--darker);
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+.dropdown:hover .dropdown-content {display: block;}
 
 /* Submission/update form settings */
 
@@ -125,56 +117,51 @@ li.dropdown {
 
 /* Card display settings */
 
-.fullCard {border: 1px solid var(--black);}
+.fullCard {
+    border: 1px solid var(--black);
+    max-width: 500px;
+}
 
-.simpleCard {border: 1px solid var(--black);}
+.simpleCard {
+    border: 1px solid var(--black);
+    max-width: 500px;
+}
 
-.paintHeader {display: flex;}
+.cardHeader {display: flex;}
 
-.projectHeader {display: flex;}
-
-.paintBody {
+.cardBody {
     display: grid;
     grid-template-areas:
         'paint pot';
 }
 
-.paintName {
+.cardName {
     flex-grow: 1;
+    border-top: 1px solid var(--black);
     border-bottom: 1px solid var(--black);
     font-weight: bold;
     color: var(--white);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px var(--black);
 }
 
-.projectName {
-    flex-grow: 1;
-    border-bottom: 1px solid var(--black);
-    font-weight: bold;
-    color: var(--white);
-    background-color: var(--dark);
-    rext-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px var(--black);
-}
-
-.paintMenu {
+.cardMenu {
     font-size: 0;
+    border-top: 1px solid var(--black);
     border-bottom: 1px solid var(--black);
 }
 
-.paintMenu a {padding: 0px;}
-
-.projectMenu {
-    font-size: 0;
-    border-bottom: 1px solid var(--black);
-}
-
-.projectMenu a {padding: 0px;}
+.cardMenu a {padding: 0px;}
 
 .paintInfo {grid-area: paint;}
 
 .potInfo {grid-area: pot;}
 
-.warning {border-top: 1px solid var(--black);}
+/* Other settings */
+
+.warning {
+    border-top: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+    }
 
 .good-bg {background-color: green;}
 
@@ -182,7 +169,7 @@ li.dropdown {
 
 .danger-bg {background-color: red;}
 
-/* Other settings */
+.black-bg {background-color: var(--black)}
 
 .wrap {
   display: flex;

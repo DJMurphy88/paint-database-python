@@ -1,25 +1,35 @@
 <div class="grid-container fullCard">
-    <div class="projectHeader">
-        <div class="projectName">
+    <div class="cardHeader">
+        <div class="cardName black-bg">
             {{ project.project_name }}
         </div>
-        <div class="projectMenu">
+        <div class="cardMenu">
             <a href=""><img src="{{ url_for('static',filename='images/icons8-edit-16.png') }}">
             </a><a href="">
                 <img src="{{ url_for('static',filename='images/icons8-trash-16.png') }}"></a>
         </div>
     </div>
-    <div class="projectBody">
+    <div class="cardBody">
         {{ project.system }}
     </div>
-    <div class="partBody">
-        {% for part in project.parts %}
-        <div class="paintName" style="background-color: {{ part[0].hexcode }}">
-            {{ part[0].paint_name }}
+    <div>
+        <div class="projectColours">
+            Colours
         </div>
-        <dv>
-            {{ part[0].pot_status }}
-        </dv>
+        {% for part in project.parts %}
+        <div class="cardHeader">
+            <div class="cardName" style="background-color: {{ part[0].hexcode }}">
+            {{ part[0].paint_name }}
+            </div>
+            <div class="cardMenu">
+                <a href=""><img src="{{ url_for('static',filename='images/icons8-edit-16.png') }}">
+                </a><a href="">
+                    <img src="{{ url_for('static',filename='images/icons8-trash-16.png') }}"></a>
+            </div>
+        </div>
+        <div>
+            Status: {{ part[0].pot_status }}
+        </div>
         <div>
             {{ part[1] }}
         </div>
