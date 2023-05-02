@@ -1,6 +1,6 @@
-<div class="grid-container fullCard">
+<div class="grid-container card">
     <div class="cardHeader">
-        <div class="cardName black-bg">
+        <div class="cardName dark-bg">
             {{ project.project_name }}
         </div>
         <div class="cardMenu">
@@ -11,10 +11,11 @@
     </div>
     <div class="cardBody">
         {{ project.system }}
-    </div>
-    <div>
-        <div class="projectColours">
-            Colours
+            <div>
+        <div class="cardHeader light-bg">
+            <div class="cardName">
+                Colours
+            </div>
         </div>
         {% for part in project.parts %}
         <div class="cardHeader">
@@ -34,5 +35,9 @@
             {{ part[1] }}
         </div>
         {% endfor %}
+    </div>
+    </div>
+    <div class="cardFooter">
+        <a href=""><img src="{{ url_for('static',filename='images/icons8-edit-16.png') }}"></a>
     </div>
 </div>

@@ -16,9 +16,9 @@
         <input type="text" id="userInput" onkeyup="listFilter()" placeholder="Sort...">
     </div>
 
-    <div class="grid-container grid-container--fit cards">
+    <div class="grid-container grid-container--fit">
     {% for paint in paints  %}
-        <div class="grid-element {{ paint.paint_colour }} card">
+        <div class="grid-element {{ paint.paint_colour }}">
             {% include 'fullcard.html' %}
         </div>
     {% endfor %}

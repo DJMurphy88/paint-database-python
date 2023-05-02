@@ -11,9 +11,9 @@
 
 {% block content %}
 
-<div class="grid-container grid-container--fit projectcards">
+<div class="grid-container grid-container--fit">
     {% for project in projects %}
-        <div class="grid-element {{ project.project_name }} card">
+        <div class="grid-element {{ project.project_name }}">
             {% include 'projectcard.html' %}
         </div>
     {% endfor %}

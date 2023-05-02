@@ -1,4 +1,4 @@
-<div class="grid-container simpleCard">
+<div class="grid-container card">
     <div class="cardHeader">
         <div class="name" style="background-color: {{ paint.hexcode }}">
             {{ paint.paint_name }}
@@ -10,7 +10,7 @@
                 <img src="{{ url_for('static',filename='images/icons8-trash-16.png') }}"></a>
         </div>
     </div>
-    <div class="cardBody">
+    <div class="paintBody">
         <div class="paintInfo">
             ID: {{ paint.paint_id }}<br/>
             Type: {{ paint.paint_type }}<br/>

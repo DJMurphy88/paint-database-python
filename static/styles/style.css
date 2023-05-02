@@ -117,23 +117,20 @@ li.dropdown {display: inline-block;}
 
 /* Card display settings */
 
-.fullCard {
-    border: 1px solid var(--black);
-    max-width: 500px;
-}
-
-.simpleCard {
+.card {
     border: 1px solid var(--black);
     max-width: 500px;
 }
 
 .cardHeader {display: flex;}
 
-.cardBody {
+.paintBody {
     display: grid;
     grid-template-areas:
         'paint pot';
 }
+
+.cardFooter {border-top: 1px solid var(--black);}
 
 .cardName {
     flex-grow: 1;
@@ -169,7 +166,11 @@ li.dropdown {display: inline-block;}
 
 .danger-bg {background-color: red;}
 
-.black-bg {background-color: var(--black)}
+.black-bg {background-color: var(--black);}
+
+.dark-bg {background-color: var(--dark);}
+
+.light-bg {background-color: var(--light);}
 
 .wrap {
   display: flex;
