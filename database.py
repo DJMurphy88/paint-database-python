@@ -188,3 +188,32 @@ def getProjectParts(project_id):
         parts.append(part)
 
     return parts
+
+def addProject(project):
+    print(f'Adding {project.project_name}')
+    query = '''INSERT INTO projects (project_name, system)
+            VALUES (?, ?)'''
+
+    with closing(conn.cursor()) as c:
+        c.execute(query, (project.project_name, project.system))
+
+        conn.commit()
+
+def updateProject(project_id, project_name, system):
+    print(f'Updating {project_id}')
+    query = '''UPDATE projects
+                SET project_name = ?, system = ?
+                WHERE project_id = ?'''
+
+    with closing(conn.cursor()) as c:
+        c.execute(query, (project_name, system, project_id))
+        conn.commit()
+
+def deleteProject(project_id):
+    print(f'Deleting {project_id}')
+    query = '''DELETE FROM projects WHERE project_id = ?;
+                DELETE FROM projects_paints WHERE project_id = ?'''
+
+    with closing(conn.cursor()) as c:
+        c.execute(query, (project_id, project_id))
+        conn.commint()

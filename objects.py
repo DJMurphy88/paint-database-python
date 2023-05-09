@@ -14,9 +14,8 @@ class Paint:
         return f'ID: {self.paint_id} Name: {self.paint_name} Type: {self.paint_type}'
 
 class Project:
-    def __init__(self, project_id, project_name, system, parts):
+    def __init__(self, project_id, project_name, system, parts=None):
         self.project_id = project_id
         self.project_name = project_name
         self.parts = parts
         self.system = system
-

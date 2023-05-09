@@ -1,5 +1,5 @@
 import database
-from objects import Paint
+from objects import Paint, Project
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
@@ -38,7 +38,7 @@ def paintsubmission():
     return render_template("paintsubmission.html")
 
 @app.route("/paintsubmission", methods=["POST"])
-def getAddData():
+def getAddPaint():
     paint_id = request.values["paintid"]
     paint_name = request.values["name"]
     paint_type = request.values["type"]
@@ -66,7 +66,7 @@ def paintupdate():
         return render_template("paintupdate.html", paint=paint)
 
 @app.route("/paintupdate", methods=["POST"])
-def getUpdateData():
+def getPaintData():
     paint_id = request.values["paintid"]
     paint_name = request.values["name"]
     paint_type = request.values["type"]
@@ -103,3 +103,27 @@ def projectList():
     database.close()
 
     return render_template('projectlist.html', projects=projects)
+
+@app.route("/projectsubmission", methods=["GET"])
+def getAddProject():
+    project_name = request.values["name"]
+    project_system = request.values["system"]
+
+    database.connect()
+    project = Project(project_name, project_system)
+    database.addProject(project)
+    database.close()
+
+    return redirect("projects")
+
+@app.route("/projectupdate", methods=["GET"])
+def projectUpdate():
+    pass
+
+@app.route("/projectupdate", methods=["POST"])
+def getProjectData():
+    pass
+
+@app.route("/projectdelete", methods=["GET", "POST"])
+def projectDelete():
+    pass
